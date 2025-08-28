@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ηλεκτρονικές Συνταγές — Κατέβασμα Εφαρμογής</title>
+  <meta name="description" content="Διαχείριση συνταγών μέσω της επίσημης εφαρμογής — Κατέβασμα." />
+
+  <style>
+    :root{
+      --gov-blue: #003366;   /* deep gov style blue */
+      --gov-blue-2: #0055aa;
+      --muted: #6b7280;
+      --container-max: 980px;
+      --radius: 8px;
+      --gap: 18px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background:#ffffff;
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Top bar / header */
+    .topbar{
+      background:var(--gov-blue);
+      color:white;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter: saturate(120%) blur(2px);
+    }
+
+    .topbar .inner{
+      max-width:var(--container-max);
+      margin:0 auto;
+      padding:12px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      letter-spacing:0.2px;
+      font-size:17px;
+    }
+
+    .brand .crest{
+      width:36px;
+      height:36px;
+      border-radius:6px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+      display:inline-grid;
+      place-items:center;
+      font-weight:700;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+    }
+
+    nav a{
+      color:rgba(255,255,255,0.92);
+      text-decoration:none;
+      font-size:14px;
+      margin-left:14px;
+    }
+
+    nav a:hover{ text-decoration:underline; }
+
+    /* Main content */
+    .container{
+      max-width:var(--container-max);
+      margin:36px auto;
+      padding:0 20px;
+    }
+
+    .hero{
+      background: linear-gradient(180deg, rgba(0,83,153,0.04), rgba(0,0,0,0.00));
+      border:1px solid rgba(0,0,0,0.04);
+      border-radius:var(--radius);
+      padding:28px;
+      display:grid;
+      gap:18px;
+      align-items:center;
+      justify-items:center;
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      background:var(--gov-blue-2);
+      color:white;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:13px;
+      letter-spacing:0.2px;
+    }
+
+    h1{
+      margin:0;
+      color:var(--gov-blue);
+      font-size:28px;
+      line-height:1.05;
+      font-weight:700;
+    }
+
+    p.lead{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      max-width:740px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:6px;
+    }
+
+    .btn-download{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--gov-blue-2);
+      color:white;
+      border:none;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:700;
+      font-size:15px;
+      text-decoration:none;
+      box-shadow: 0 6px 18px rgba(0,85,170,0.12);
+    }
+
+    .btn-download:hover{ transform:translateY(-2px); }
+
+    .btn-secondary{
+      background:white;
+      border:1px solid #e6e9ee;
+      color:var(--gov-blue);
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .note{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .infobox{
+      margin-top:18px;
+      background:#f8fafc;
+      border:1px solid rgba(0,0,0,0.03);
+      padding:14px;
+      border-radius:8px;
+      color:#334155;
+      font-size:14px;
+      text-align:left;
+      max-width:760px;
+    }
+
+    footer{
+      margin-top:36px;
+      border-top:1px solid rgba(0,0,0,0.04);
+      padding:18px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .foot-inner{
+      max-width:var(--container-max);
+      margin:0 auto;
+      padding:0 20px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    /* small screens */
+    @media (max-width:640px){
+      h1{ font-size:22px; }
+      .topbar .inner{ padding:10px 14px; }
+      .hero{ padding:20px; }
+      .btn-download{ width:100%; justify-content:center; }
+      .cta-row{ flex-direction:column; }
+      nav{ display:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" role="banner" aria-label="Κορυφαίο πλαίσιο">
+    <div class="inner">
+      <div class="brand" aria-hidden="true">
+        <div class="crest" title="Ελληνική Δημοκρατία">ΕΛ</div>
+        gov.gr
+      </div>
+
+      <nav role="navigation" aria-label="Κύρια πλοήγηση">
+        <a href="#" tabindex="0">Υπηρεσίες</a>
+        <a href="#" tabindex="0">Πολίτης</a>
+        <a href="#" tabindex="0">Επικοινωνία</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="hero" aria-labelledby="main-title">
+      <div class="eyebrow" aria-hidden="true">Επίσημη Ειδοποίηση</div>
+
+      <h1 id="main-title">Οι ηλεκτρονικές συνταγές διαχειρίζονται πλέον μόνο μέσω της εφαρμογής</h1>
+
+      <p class="lead">
+      Από <strong>1 Αυγούστου 2025</strong> η έκδοση και η διαχείριση συνταγών πραγματοποιούνται αποκλειστικά
+      μέσω της επίσημης εφαρμογής. Οι συνταγές δεν αποστέλλονται πλέον μέσω SMS ή Email.
+      </p>
+
+
+      <div class="cta-row" role="region" aria-label="Κύριες ενέργειες">
+        <!-- Placeholder href: replace with real file path or store URL -->
+        <a class="btn-download" href="/downloads/prescription-app.apk" download aria-label="Κατεβάστε την εφαρμογή συνταγών">
+          ⬇ Κατεβάστε την Εφαρμογή
+        </a>
+
+      </div>
+
+      <p class="note">Διαθέσιμη για Android. Η έκδοση για iOS θα ανακοινωθεί σύντομα.</p>
+
+      <div class="infobox" role="note">
+        <strong>Σημαντικό:</strong>
+        Η εφαρμογή είναι το μοναδικό μέσο διαχείρισης συνταγών. Για υποστήριξη σχετικά με την εγκατάσταση ή προβλήματα σύνδεσης,
+        επισκεφθείτε τη σελίδα υποστήριξης ή καλέστε την γραμμή βοήθειας.
+      </div>
+
+      <div style="margin-top:8px; font-size:12px; color:#6b7280;">
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="foot-inner">
+      <div>© <span id="year"></span> gov.gr — Ελληνική Δημοκρατία</div>
+      <div>
+        <a href="#" style="color:inherit; text-decoration:underline; margin-right:14px;">Όροι χρήσης</a>
+        <a href="#" style="color:inherit; text-decoration:underline;">Πολιτική απορρήτου</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // populate year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
